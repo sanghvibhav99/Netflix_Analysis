@@ -5,6 +5,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from cleaning import clean
 from processing import process
+from matplotlib.ticker import MaxNLocator
 
 st.set_page_config(page_title='Netflix Analysis',page_icon="🎬",layout='wide')
 st.title("Netflix Analysis")
@@ -41,6 +42,7 @@ if mode == "📈 Genre Trends":
         ax.set_xlabel('Year',color='#E50914')
         ax.set_ylabel('No. of Releases',color='#E50914')
         ax.set_title(f'{genre} Movies released over years.',color='#E50914')
+        ax.xaxis.set_major_locator(MaxNLocator(integer=True))
         ax.tick_params('both',colors='#E50914')
         ax.grid(True,linestyle='--',alpha=1)
         for spine in ax.spines.values():
@@ -116,10 +118,11 @@ if mode == "📈 Genre Trends":
             fig.set_facecolor('none')
             ax.set_alpha(0)
             ax.bar(x - width/2,merged['rolling1'],width,label=g1,color="#E50914")
-            ax.bar(x + width/2, merged['rolling2'], width, label=g2, color="#E50914")
+            ax.bar(x + width/2, merged['rolling2'], width, label=g2, color="#5EFF00")
 
             ax.set_xlabel('Year',color='#E50914')
             ax.set_ylabel('No. of releases',color='#E50914')
+            ax.xaxis.set_major_locator(MaxNLocator(integer=True))
             ax.set_title(f'Comparison : {g1} vs {g2}',color='#E50914')
             ax.set_xticks(x[::5])
             ax.set_xticklabels(merged['release_year'].iloc[::5].astype(int), rotation=45, color='#E50914')

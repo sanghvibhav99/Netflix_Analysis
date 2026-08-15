@@ -38,13 +38,13 @@ if mode == "📈 Genre Trends":
         fig.set_facecolor('none')
 
         ax.plot(trend_df['release_year'],trend_df['count'],marker='o',linestyle='-',color='#E50914')
-        ax.set_xlabel('Year',color='white')
-        ax.set_ylabel('No. of Releases',color='white')
-        ax.set_title(f'{genre} Movies released over years.',color='white')
-        ax.tick_params('both',colors='white')
+        ax.set_xlabel('Year',color='#E50914')
+        ax.set_ylabel('No. of Releases',color='#E50914')
+        ax.set_title(f'{genre} Movies released over years.',color='#E50914')
+        ax.tick_params('both',colors='#E50914')
         ax.grid(True,linestyle='--',alpha=1)
         for spine in ax.spines.values():
-            spine.set_color("white")
+            spine.set_color("#E50914")
 
         st.pyplot(fig,transparent=True)
 
@@ -62,13 +62,13 @@ if mode == "📈 Genre Trends":
         ax.set_alpha(0)
 
         ax.bar(top_15_genres['genre'],top_15_genres['count'],color='#E50914')
-        ax.set_title(f"Top 15 Genres in {yr}", color='white')
-        ax.set_xlabel('Genre', color='white')
-        ax.set_ylabel('Count', color='white')
-        ax.tick_params(axis='x', rotation=90, colors='white')
-        ax.tick_params(axis='y', colors='white')
+        ax.set_title(f"Top 15 Genres in {yr}", color='#E50914')
+        ax.set_xlabel('Genre', color='#E50914')
+        ax.set_ylabel('Count', color='#E50914')
+        ax.tick_params(axis='x', rotation=90, colors='#E50914')
+        ax.tick_params(axis='y', colors='#E50914')
         for spine in ax.spines.values():
-            spine.set_color("white")
+            spine.set_color("#E50914")
 
         st.pyplot(fig,transparent=True)
 
@@ -115,20 +115,20 @@ if mode == "📈 Genre Trends":
             fig,ax = plt.subplots(figsize=[6,3])
             fig.set_facecolor('none')
             ax.set_alpha(0)
-            ax.bar(x - width/2,merged['rolling1'],width,label=g1,color="#73FF00")
-            ax.bar(x + width/2, merged['rolling2'], width, label=g2, color="#00e1ff")
+            ax.bar(x - width/2,merged['rolling1'],width,label=g1,color="#E50914")
+            ax.bar(x + width/2, merged['rolling2'], width, label=g2, color="#E50914")
 
-            ax.set_xlabel('Year',color='white')
-            ax.set_ylabel('No. of releases',color='white')
-            ax.set_title(f'Comparison : {g1} vs {g2}',color='white')
+            ax.set_xlabel('Year',color='#E50914')
+            ax.set_ylabel('No. of releases',color='#E50914')
+            ax.set_title(f'Comparison : {g1} vs {g2}',color='#E50914')
             ax.set_xticks(x[::5])
-            ax.set_xticklabels(merged['release_year'].iloc[::5].astype(int), rotation=45, color='white')
-            ax.tick_params(axis='y', colors='white')
+            ax.set_xticklabels(merged['release_year'].iloc[::5].astype(int), rotation=45, color='#E50914')
+            ax.tick_params(axis='y', colors='#E50914')
 
             ax.grid(True, linestyle='--', alpha=0.8)
-            ax.legend(frameon=False, labelcolor='white')
+            ax.legend(frameon=False, labelcolor='#E50914')
             for spine in ax.spines.values():
-                spine.set_color("white")
+                spine.set_color("#E50914")
 
             st.pyplot(fig,transparent=True)
 
@@ -162,9 +162,9 @@ if mode == "🎭 Actor Portfolio":
         ax.set_alpha(0)
         fig.set_facecolor('none')
 
-        wedges,text,autotexts = ax.pie(actor_genre_count['count'],autopct='%1.0f%%',startangle=90,pctdistance=1.2,wedgeprops=dict(width=0.5, edgecolor='black'), textprops={'color': 'white', 'fontsize': 6} )
-        legend = ax.legend(wedges,actor_genre_count['genre'],title="Genres",loc="center left",bbox_to_anchor=(1, 0, 0.5, 1),frameon=False,labelcolor='white')
-        plt.setp(legend.get_title(), color='white') 
+        wedges,text,autotexts = ax.pie(actor_genre_count['count'],autopct='%1.0f%%',startangle=90,pctdistance=1.2,wedgeprops=dict(width=0.5, edgecolor='black'), textprops={'color': '#E50914', 'fontsize': 6} )
+        legend = ax.legend(wedges,actor_genre_count['genre'],title="Genres",loc="center left",bbox_to_anchor=(1, 0, 0.5, 1),frameon=False,labelcolor='#E50914')
+        plt.setp(legend.get_title(), color='#E50914') 
         st.pyplot(fig,transparent=True)
 
     choice = st.selectbox('Select Genre : ',list(actor_genres))
